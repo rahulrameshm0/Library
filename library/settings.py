@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['library-7q4k.onrender.com', '127.0.0.1', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['https://library-7q4k.onrender.com']
+
 
 # Application definition
 
