@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Books</title>
+    <style>
+        .container{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Books</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" id="title" placeholder="Book Name" required>
+            <input type="text" name="rating" id="rating" placeholder="Book Rating" required>
+
+            <select name="author" required>  
+                <option value="">Select Author</option>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option> 
+                {% endfor %}
+            </select>
+            <button type="submit">Add Books</button>
+        </form>
+    </div>
+</body>
+</html>

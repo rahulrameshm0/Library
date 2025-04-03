@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        .container{
+         display: flex;
+         align-items: center;
+         flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome too signup page</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="password" required>
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author</title>
+</head>
+<body>
+    <form action="{% url 'add_author' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" id="name" placeholder="Author Name" required>
+        <button type="submit">Add Author</button>
+    </form>
+</body>
+</html>
