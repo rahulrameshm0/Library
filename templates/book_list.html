@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Book Rating</th>
+            <th>Upload Date</th>
+            <th>Borrow</th>
+            <th>Edit</th>
+            <th>Delete</th>
+       
+        </tr>
+        {% for details in book_details %}
+            <tr>
+                <td>{{details.title}}</td>
+                <td>{{details.author.name}}</td>
+                <td>{{details.date}}</td>
+                <td>{{details.rating}}</td>
+                <td><a href="#">Borrow</a></td>
+                <td><a href="{% url 'edit_book' book_id=details.id %}">Update</a></td>
+                <td><a href="#">Delete</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+</body>
+</html>

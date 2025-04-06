@@ -75,7 +75,22 @@ def add_book(request):
     return render(request, 'books.html',{'authors':authors})
 
 
-def user_logout(request):   
+def book_details(request):
+    book_details = Book.objects.all()
+    author = Author.objects.all()
+
+    return render(request, 'book_list.html', {'book_details':book_details, 'author':author})
+
+def user_borrowed(request):
+    return render(request, 'user_borrowed.html')
+
+def edit_book(request, book_id):
+    return render(request, 'edit.html')
+
+def delete(request):
+    pass
+
+def user_logout(request):
     logout(request)
     response = redirect("user_login")
     response['Cache-control'] = "no-cache, no-store, must-revalidate"
