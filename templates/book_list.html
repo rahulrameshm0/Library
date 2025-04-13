@@ -1,156 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book List</title>
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
-}
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-}
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+        }
 
-th {
-    background-color: #3498db;
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-}
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-tr:hover {
-    background-color: #e3f2fd;
-    transition: background-color 0.2s ease;
-}
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.2s ease;
+        }
 
-/* Button Styling */
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+        /* Button Styling */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-button:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-/* Action Buttons */
-td:nth-last-child(-n+3) button {
-    width: 100%;
-}
+        /* Action Buttons */
+        td:nth-last-child(-n+3) button {
+            width: 100%;
+        }
 
-td:nth-last-child(3) button {
-    background-color: #2ecc71; /* Borrow button */
-}
+        td:nth-last-child(3) button {
+            background-color: #2ecc71;
+            /* Borrow button */
+        }
 
-td:nth-last-child(3) button:hover {
-    background-color: #27ae60;
-}
+        td:nth-last-child(3) button:hover {
+            background-color: #27ae60;
+        }
 
-td:nth-last-child(2) button {
-    background-color: #f39c12; /* Edit button */
-}
+        td:nth-last-child(2) button {
+            background-color: #f39c12;
+            /* Edit button */
+        }
 
-td:nth-last-child(2) button:hover {
-    background-color: #e67e22;
-}
+        td:nth-last-child(2) button:hover {
+            background-color: #e67e22;
+        }
 
-td:nth-last-child(1) button {
-    background-color: #e74c3c; /* Delete button */
-}
+        td:nth-last-child(1) button {
+            background-color: #e74c3c;
+            /* Delete button */
+        }
 
-td:nth-last-child(1) button:hover {
-    background-color: #c0392b;
-}
+        td:nth-last-child(1) button:hover {
+            background-color: #c0392b;
+        }
 
-/* Rating Styling */
-td:nth-child(4) {
-    font-weight: 600;
-}
+        /* Rating Styling */
+        td:nth-child(4) {
+            font-weight: 600;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    
-    th, td {
-        padding: 10px 12px;
-    }
-    
-    button {
-        padding: 6px 10px;
-        font-size: 14px;
-    }
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
 
-/* Add a container for better spacing on large screens */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+            th,
+            td {
+                padding: 10px 12px;
+            }
 
-/* Optional: Add animation for table rows */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+            button {
+                padding: 6px 10px;
+                font-size: 14px;
+            }
+        }
 
-tr {
-    animation: fadeIn 0.3s ease forwards;
-}
+        /* Add a container for better spacing on large screens */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-tr:nth-child(1) { animation-delay: 0.1s; }
-tr:nth-child(2) { animation-delay: 0.2s; }
-tr:nth-child(3) { animation-delay: 0.3s; }
+        /* Optional: Add animation for table rows */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        tr {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        tr:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        tr:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        tr:nth-child(3) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
+
 <body>
     <table border="1">
         <tr>
@@ -161,24 +183,25 @@ tr:nth-child(3) { animation-delay: 0.3s; }
             <th>Borrow</th>
             <th>Edit</th>
             <th>Delete</th>
-       
+
         </tr>
         {% for details in book_details %}
-            <tr>
-                <td>{{details.title}}</td>
-                <td>{{details.author.name}}</td>
-                <td>{{details.date}}</td>
-                <td>{{details.rating}}</td>
-                <td>    
-                    <form method="POST" action="{% url 'borrow_book' book_id=details.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Borrow</button>
-                    </form>
-                </td>
-                <td><a href="{% url 'edit_book' book_id=details.id %}"> <button type="button">Edit</button></a></td>
-                <td><a href="{% url 'book_list' details.id %}"><button type="button">Delete</button></a></td>
-            </tr>
-            {% endfor %}
+        <tr>
+            <td>{{details.title}}</td>
+            <td>{{details.author.name}}</td>
+            <td>{{details.date}}</td>
+            <td>{{details.rating}}</td>
+            <td>
+                <form method="POST" action="{% url 'borrow_book' book_id=details.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Borrow</button>
+                </form>
+            </td>
+            <td><a href="{% url 'edit_book' book_id=details.id %}"> <button type="button">Edit</button></a></td>
+            <td><a href="{% url 'book_list' details.id %}"><button type="button">Delete</button></a></td>
+        </tr>
+        {% endfor %}
     </table>
 </body>
+
 </html>
