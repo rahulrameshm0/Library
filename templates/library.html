@@ -5,22 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <style>
-        .container{
+         
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f9fc;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 12px 24px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        a[href*="logout"] {
+            background-color: #e74c3c;
+        }
+
+        a[href*="logout"]:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 600px) {
+            a {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome To Book Stall</h1>
-        <a href="{% url 'logout' %}">Logout</a>
-    
+        
         <div>
             <a href="{% url 'add_author' %}">Add Author</a>
             <a href="{% url 'add_book' %}">Add Book</a>
             <a href="{% url 'book_list' %}">Book List</a>
             <a href="{% url 'borrowed_book' %}">Borrowed Book</a>
         </div>
+        <a href="{% url 'logout' %}">Logout</a>
     </div>
 </body>
 </html>

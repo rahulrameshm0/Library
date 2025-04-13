@@ -21,3 +21,12 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Borrow(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    borrowed_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.username} borrowed {self.book.title}"
+    

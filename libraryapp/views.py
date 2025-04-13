@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from . models import Author, Book
+from . models import Author, Book, Borrow
 
 # Create your views here.
 
@@ -27,7 +27,6 @@ def user_login(request):
             response['Pragma'] = 'no-cache'
             response['Expires'] = '0'
             return response
-        
         else:
             messages.error(request, "Your password or email is incorrect")
             return redirect('user_login')
@@ -91,6 +90,20 @@ def edit_book(request, book_id):
         book.save()
         return redirect('book_list')
     return render(request, 'edit.html')
+
+def borrow_book(request, book_id):
+    if request.method == "POST":
+        print("Borrow view called")
+        book = get_object_or_404(Book, id=book_id)
+        user_id =request.session.get('user_id')
+
+        if user_id:
+            user_obj = get_object_or_404(User, id=user_id)
+            Borrow.objects.create(user=user_obj, book=book)
+        else:
+            messages.error(request, "You need to login first")
+            return redirect('user_login')
+    return redirect('home')
 
 def delete_item(request, id):
     book = Book.objects.get(id=id)

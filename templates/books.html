@@ -5,9 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Books</title>
     <style>
-        .container{
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb, #ebedee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
             text-align: center;
         }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        select {
+            background-color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #8e44ad;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6c3483;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+        }
+
     </style>
 </head>
 <body>
