@@ -10,8 +10,8 @@
         <tr>
             <th>Book Name</th>
             <th>Author Name</th>
-            <th>Book Rating</th>
             <th>Upload Date</th>
+            <th>Book Rating</th>
             <th>Borrow</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -25,7 +25,7 @@
                 <td>{{details.rating}}</td>
                 <td><a href="#">Borrow</a></td>
                 <td><a href="{% url 'edit_book' book_id=details.id %}">Update</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="{% url 'book_list' details.id %}"><button type="button">Delete</button></a></td>
             </tr>
             {% endfor %}
     </table>

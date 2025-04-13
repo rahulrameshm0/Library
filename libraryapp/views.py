@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate,login, logout 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -85,10 +85,17 @@ def user_borrowed(request):
     return render(request, 'user_borrowed.html')
 
 def edit_book(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    if request.method == "POST":
+        book.title = request.POST.get('book_name')
+        book.save()
+        return redirect('book_list')
     return render(request, 'edit.html')
 
-def delete(request):
-    pass
+def delete_item(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect("book_list")
 
 def user_logout(request):
     logout(request)
