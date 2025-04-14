@@ -85,11 +85,14 @@ def user_borrowed(request):
 
 def edit_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
+    author = book.author
     if request.method == "POST":
         book.title = request.POST.get('book_name')
+        author.name = request.POST.get('author')
         book.save()
+        author.save()
         return redirect('book_list')
-    return render(request, 'edit.html')
+    return render(request, 'edit.html', {'book':book, 'author':author})
 
 def borrow_book(request, book_id):
     if request.method == "POST":

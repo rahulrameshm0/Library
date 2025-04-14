@@ -74,8 +74,8 @@
 <body>
     <form action="" method="POST">
         {% csrf_token %}
-        <input type="text" name="book_name" id="book_name" placeholder="Book" required>
-        <input type="text" name="author" id="author" placeholder="Author" required>
+        <input type="text" name="book_name" id="book_name" value="{{book.title}}" placeholder="Book" required>
+        <input type="text" name="author" id="author" placeholder="Author" value="{{author.name}}" required>
         <button type="submit">Edit Book</button>
     </form>
 </body>
